@@ -110,7 +110,7 @@ public class SwiftFlutterBranchIoPlugin: NSObject, FlutterPlugin, FlutterStreamH
   }
     
   private func clearUserIdentity(call: FlutterMethodCall, result: @escaping FlutterResult) {
-    Branch.getInstance().logout()
+    Branch.getInstance()?.logout()
   }
     
   private func getLatestParam(call: FlutterMethodCall, result: @escaping FlutterResult) {
