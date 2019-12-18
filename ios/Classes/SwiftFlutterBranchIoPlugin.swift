@@ -166,7 +166,7 @@ public class SwiftFlutterBranchIoPlugin: FlutterPluginAppLifeCycleDelegate, Flut
 
 
     override public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        let branchHandled = Branch.getInstance().application(app, open: url, options: options)
+        let branchHandled = Branch.getInstance().application(app, open: url, options: options) ?? false
         return branchHandled
     }
 
@@ -177,7 +177,7 @@ public class SwiftFlutterBranchIoPlugin: FlutterPluginAppLifeCycleDelegate, Flut
 
     public func application(_ app: UIApplication, continue userActivity: NSUserActivity, restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         // handler for Universal Links
-        let handledByBranch = Branch.getInstance().continue(userActivity)
+        let handledByBranch = Branch.getInstance().continue(userActivity) ?? false
         return handledByBranch
     }
 }
